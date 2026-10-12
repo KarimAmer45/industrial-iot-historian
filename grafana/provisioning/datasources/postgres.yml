@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: Historian PostgreSQL
+    uid: historian-postgres
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: ${HIST_DB_HOST}
+    user: ${HIST_DB_USER}
+    secureJsonData:
+      password: ${HIST_DB_PASSWORD}
+    jsonData:
+      database: ${HIST_DB_NAME}
+      sslmode: disable
+      postgresVersion: 1700
+      timescaledb: true
+    isDefault: true
+    editable: false

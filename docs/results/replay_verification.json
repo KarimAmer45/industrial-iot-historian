@@ -1,0 +1,295 @@
+{
+  "inserted": 0,
+  "bad_skipped": 32,
+  "received": 83266,
+  "scores": [
+    {
+      "recording_id": "valve1_1",
+      "total": 1145,
+      "scored": 1145,
+      "tp": 201,
+      "fp": 315,
+      "fn": 201,
+      "tn": 428,
+      "precision": 0.38953488372093026,
+      "recall": 0.5,
+      "f1": 0.43790849673202614,
+      "prevalence": 0.35109170305676857,
+      "fpr": 0.423956931359354,
+      "tpr_minus_fpr": 0.07604306864064603,
+      "always_anomaly_f1": 0.519715578539108
+    },
+    {
+      "recording_id": "valve1_2",
+      "total": 1075,
+      "scored": 1075,
+      "tp": 152,
+      "fp": 323,
+      "fn": 185,
+      "tn": 415,
+      "precision": 0.32,
+      "recall": 0.45103857566765576,
+      "f1": 0.37438423645320196,
+      "prevalence": 0.31348837209302327,
+      "fpr": 0.43766937669376693,
+      "tpr_minus_fpr": 0.01336919897388883,
+      "always_anomaly_f1": 0.4773371104815864
+    },
+    {
+      "recording_id": "valve2_1",
+      "total": 1063,
+      "scored": 1063,
+      "tp": 159,
+      "fp": 311,
+      "fn": 174,
+      "tn": 419,
+      "precision": 0.3382978723404255,
+      "recall": 0.4774774774774775,
+      "f1": 0.3960149439601494,
+      "prevalence": 0.31326434619002824,
+      "fpr": 0.426027397260274,
+      "tpr_minus_fpr": 0.05145008021720349,
+      "always_anomaly_f1": 0.47707736389684813
+    }
+  ],
+  "acquisition_gaps": [
+    {
+      "reason": "collector stopped",
+      "closed": false,
+      "signals": 32
+    }
+  ],
+  "aggregate_refreshed": [
+    "steel2018",
+    "valve1_1",
+    "valve1_2",
+    "valve2_1"
+  ],
+  "signals": [
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Current",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Pressure",
+      "source_rows": 1145,
+      "expected_changes": 645,
+      "stored": 645,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Temperature",
+      "source_rows": 1145,
+      "expected_changes": 1144,
+      "stored": 1144,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Thermocouple",
+      "source_rows": 1145,
+      "expected_changes": 1098,
+      "stored": 1098,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Voltage",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1145,
+      "expected_changes": 744,
+      "stored": 744,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.Labels.anomaly",
+      "source_rows": 1145,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.Labels.changepoint",
+      "source_rows": 1145,
+      "expected_changes": 9,
+      "stored": 9,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Current",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Pressure",
+      "source_rows": 1075,
+      "expected_changes": 594,
+      "stored": 594,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Temperature",
+      "source_rows": 1075,
+      "expected_changes": 1074,
+      "stored": 1074,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Thermocouple",
+      "source_rows": 1075,
+      "expected_changes": 1025,
+      "stored": 1025,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Voltage",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1075,
+      "expected_changes": 622,
+      "stored": 622,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.Labels.anomaly",
+      "source_rows": 1075,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.Labels.changepoint",
+      "source_rows": 1075,
+      "expected_changes": 7,
+      "stored": 7,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1063,
+      "expected_changes": 1062,
+      "stored": 1062,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Current",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Pressure",
+      "source_rows": 1063,
+      "expected_changes": 656,
+      "stored": 656,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Temperature",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Thermocouple",
+      "source_rows": 1063,
+      "expected_changes": 1031,
+      "stored": 1031,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Voltage",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1063,
+      "expected_changes": 708,
+      "stored": 708,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.Labels.anomaly",
+      "source_rows": 1063,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.Labels.changepoint",
+      "source_rows": 1063,
+      "expected_changes": 9,
+      "stored": 9,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SteelPlant.MainMeter.Usage_kWh",
+      "source_rows": 35040,
+      "expected_changes": 31694,
+      "stored": 31694,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SteelPlant.MainMeter.Lagging_Current_Power_Factor",
+      "source_rows": 35040,
+      "expected_changes": 28003,
+      "stored": 28003,
+      "all_changes_match": true
+    }
+  ],
+  "transport": "OPC UA subscriptions over localhost TCP; no sensor backfill shortcut"
+}

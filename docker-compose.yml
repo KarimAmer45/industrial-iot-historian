@@ -1,0 +1,43 @@
+services:
+  db:
+    image: timescale/timescaledb:2.30.2-pg17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-historian_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-line_historian}
+      TIMESCALEDB_TELEMETRY: 'off'
+    ports: ["127.0.0.1:${POSTGRES_PORT:-55435}:5432"]
+    volumes: ["historian_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 3s
+      retries: 30
+  demo:
+    build: .
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: ${POSTGRES_USER:-historian_admin}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      PGDATABASE: ${POSTGRES_DB:-line_historian}
+    volumes:
+      - ./data:/app/data
+      - ./docs/results:/app/docs/results
+      - ./grafana:/app/grafana
+  grafana:
+    image: grafana/grafana:13.2.3
+    profiles: [dashboard]
+    ports: ["127.0.0.1:3003:3000"]
+    environment:
+      HIST_DB_HOST: db:5432
+      HIST_DB_NAME: ${POSTGRES_DB:-line_historian}
+      HIST_DB_USER: historian_dashboard
+      HIST_DB_PASSWORD: ${GRAFANA_DB_PASSWORD:-not-configured}
+      HIST_DASHBOARDS_PATH: /etc/grafana/provisioning/dashboards
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-change-before-starting-dashboard}
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+    volumes: ["./grafana/provisioning:/etc/grafana/provisioning:ro"]
+volumes:
+  historian_data:

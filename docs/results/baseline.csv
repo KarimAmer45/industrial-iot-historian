@@ -1,0 +1,2 @@
+parameter,n,mean,sd,low_limit,high_limit,source
+Current,9405,2.4030101071770336,0.4864685694620367,0.9436043987909235,3.8624158155631436,skab:anomaly-free/anomaly-free.csv

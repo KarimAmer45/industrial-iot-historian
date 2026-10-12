@@ -1,0 +1,16 @@
+{
+  "manual_browser_inspection": "2026-10-11, local Grafana 13.2.3 on 127.0.0.1:3003; manual inspection, not an automated rendering test",
+  "method": "dashboard opened in a browser; each source period selected with the links at the top; screenshots saved",
+  "inspected_views": [
+    "2026 rectifier week (2026-03-01 23:00 to 2026-03-08 23:00 UTC): current for 37 slots; carrier table lists L1-T05-S16 carriers B49, B03 and B26 at ratio 0.700, others 0.999; daily charge 2026-03-04 at -0.471 % versus the Project 2 reference",
+    "2020 SKAB recording (2020-03-09 10:34 to 10:55 UTC): pump current with the recorded anomaly overlay",
+    "2018 steel meter (2018-01-01 to 2019-01-01 UTC): daily energy for the year",
+    "SKAB detector score table: tp/fp/fn/tn 201/315/201/428, 152/323/185/415, 159/311/174/419"
+  ],
+  "screenshots": [
+    "grafana_rectifier.png",
+    "grafana_skab.png",
+    "grafana_steel.png"
+  ],
+  "note": "Time-series panels show no data outside their own source period by design. The six panel queries were checked separately through Grafana's query API the same day (grafana_verification.json)."
+}

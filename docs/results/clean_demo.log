@@ -1,0 +1,402 @@
+Applied V001__foundation.sql
+Applied V002__audit.sql
+Applied V003__reference.sql
+Applied V004__lab_core.sql
+Applied V005__traceability.sql
+Applied V006__trace_functions.sql
+Applied V007__historian.sql
+Applied V008__daily_energy.sql
+Applied V009__steel_grid.sql
+Applied V010__efficient_sample_hold.sql
+Applied V011__evidence_hardening.sql
+Applied V012__acquisition_gaps.sql
+Applied V013__dashboard_role_and_grants.sql
+Applied V014__gap_alignment.sql
+plate slots (derived): 37, lots: 5687, carriers: 11662, measurements: 27733, incident: 2026-04-30 to 2026-05-02, complaint lot: L260430-01721
+Downloaded/verified 8 files
+{
+  "inserted": 83266,
+  "gaps_recorded": 32,
+  "bad_skipped": 32,
+  "received": 83266,
+  "gaps_opened": 32,
+  "scores": [
+    {
+      "recording_id": "valve1_1",
+      "total": 1145,
+      "scored": 1145,
+      "tp": 201,
+      "fp": 315,
+      "fn": 201,
+      "tn": 428,
+      "precision": 0.38953488372093026,
+      "recall": 0.5,
+      "f1": 0.43790849673202614,
+      "prevalence": 0.35109170305676857,
+      "fpr": 0.423956931359354,
+      "tpr_minus_fpr": 0.07604306864064603,
+      "always_anomaly_f1": 0.519715578539108
+    },
+    {
+      "recording_id": "valve1_2",
+      "total": 1075,
+      "scored": 1075,
+      "tp": 152,
+      "fp": 323,
+      "fn": 185,
+      "tn": 415,
+      "precision": 0.32,
+      "recall": 0.45103857566765576,
+      "f1": 0.37438423645320196,
+      "prevalence": 0.31348837209302327,
+      "fpr": 0.43766937669376693,
+      "tpr_minus_fpr": 0.01336919897388883,
+      "always_anomaly_f1": 0.4773371104815864
+    },
+    {
+      "recording_id": "valve2_1",
+      "total": 1063,
+      "scored": 1063,
+      "tp": 159,
+      "fp": 311,
+      "fn": 174,
+      "tn": 419,
+      "precision": 0.3382978723404255,
+      "recall": 0.4774774774774775,
+      "f1": 0.3960149439601494,
+      "prevalence": 0.31326434619002824,
+      "fpr": 0.426027397260274,
+      "tpr_minus_fpr": 0.05145008021720349,
+      "always_anomaly_f1": 0.47707736389684813
+    }
+  ],
+  "acquisition_gaps": [
+    {
+      "reason": "collector stopped",
+      "closed": false,
+      "signals": 32
+    }
+  ],
+  "aggregate_refreshed": [
+    "steel2018",
+    "valve1_1",
+    "valve1_2",
+    "valve2_1"
+  ],
+  "signals": [
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Current",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Pressure",
+      "source_rows": 1145,
+      "expected_changes": 645,
+      "stored": 645,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Temperature",
+      "source_rows": 1145,
+      "expected_changes": 1144,
+      "stored": 1144,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Thermocouple",
+      "source_rows": 1145,
+      "expected_changes": 1098,
+      "stored": 1098,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.Voltage",
+      "source_rows": 1145,
+      "expected_changes": 1145,
+      "stored": 1145,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1145,
+      "expected_changes": 744,
+      "stored": 744,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.Labels.anomaly",
+      "source_rows": 1145,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_1.Labels.changepoint",
+      "source_rows": 1145,
+      "expected_changes": 9,
+      "stored": 9,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Current",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Pressure",
+      "source_rows": 1075,
+      "expected_changes": 594,
+      "stored": 594,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Temperature",
+      "source_rows": 1075,
+      "expected_changes": 1074,
+      "stored": 1074,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Thermocouple",
+      "source_rows": 1075,
+      "expected_changes": 1025,
+      "stored": 1025,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.Voltage",
+      "source_rows": 1075,
+      "expected_changes": 1075,
+      "stored": 1075,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1075,
+      "expected_changes": 622,
+      "stored": 622,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.Labels.anomaly",
+      "source_rows": 1075,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve1_2.Labels.changepoint",
+      "source_rows": 1075,
+      "expected_changes": 7,
+      "stored": 7,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Accelerometer1RMS",
+      "source_rows": 1063,
+      "expected_changes": 1062,
+      "stored": 1062,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Accelerometer2RMS",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Current",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Pressure",
+      "source_rows": 1063,
+      "expected_changes": 656,
+      "stored": 656,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Temperature",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Thermocouple",
+      "source_rows": 1063,
+      "expected_changes": 1031,
+      "stored": 1031,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.Voltage",
+      "source_rows": 1063,
+      "expected_changes": 1063,
+      "stored": 1063,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.WaterLoop.VolumeFlowRateRMS",
+      "source_rows": 1063,
+      "expected_changes": 708,
+      "stored": 708,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.Labels.anomaly",
+      "source_rows": 1063,
+      "expected_changes": 3,
+      "stored": 3,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SKAB.valve2_1.Labels.changepoint",
+      "source_rows": 1063,
+      "expected_changes": 9,
+      "stored": 9,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SteelPlant.MainMeter.Usage_kWh",
+      "source_rows": 35040,
+      "expected_changes": 31694,
+      "stored": 31694,
+      "all_changes_match": true
+    },
+    {
+      "tag": "SteelPlant.MainMeter.Lagging_Current_Power_Factor",
+      "source_rows": 35040,
+      "expected_changes": 28003,
+      "stored": 28003,
+      "all_changes_match": true
+    }
+  ],
+  "transport": "OPC UA subscriptions over localhost TCP; no sensor backfill shortcut"
+}
+{
+  "start": "2026-03-02 00:00:00+01:00",
+  "end": "2026-03-09 00:00:00+01:00",
+  "step_seconds": 10,
+  "slots": 37,
+  "fault_station_id": 16,
+  "fault_day": "2026-03-04",
+  "fault_factor": 0.7,
+  "carrier_steps": 486,
+  "samples": 2238283,
+  "flagged_steps": [
+    {
+      "step_id": 228,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 08:00:00+00:00",
+      "ratio": 0.6997006180668452,
+      "fault_expected": true
+    },
+    {
+      "step_id": 265,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 10:28:00+00:00",
+      "ratio": 0.7003137187198997,
+      "fault_expected": true
+    },
+    {
+      "step_id": 302,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 12:56:00+00:00",
+      "ratio": 0.6997136622831241,
+      "fault_expected": true
+    }
+  ]
+}
+Loaded 130 daily reference totals
+Exported seven result tables, summary and three figures
+Grafana dashboard and provisioning files generated
+..........................................                               [100%]
+- generated xml file: F:\Repositories\Data Base\Partec\industrial-iot-historian\docs\results\tests.xml -
+42 passed in 137.27s (0:02:17)
+{
+  "postgres_version": "17.11",
+  "timescale_version": "2.30.2",
+  "sample_count": 2321549,
+  "chunks": 374,
+  "rowstore_bytes": 249839616,
+  "columnstore_bytes": 19161088,
+  "compression_ratio": 13.038905515177426,
+  "rowstore_method": "each chunk copied into a fresh heap with freshly built copies of the hypertable indexes",
+  "columnstore_method": "compressed chunk relations (chunk_columnstore_stats after_compression_total_bytes)",
+  "hypertable_size_after_conversion": 25305088,
+  "hypertable_size_note": "also counts the empty rowstore relations of every converted chunk; their size depends on conversion history",
+  "datasets": [
+    {
+      "dataset": "rectifiers (simulated)",
+      "chunks": 8,
+      "rows": 2238283,
+      "rowstore_bytes": 222617600,
+      "columnstore_bytes": 3874816,
+      "compression_ratio": 57.45243128964059
+    },
+    {
+      "dataset": "steel meter (real)",
+      "chunks": 365,
+      "rows": 59697,
+      "rowstore_bytes": 24748032,
+      "columnstore_bytes": 14950400,
+      "compression_ratio": 1.6553424657534246
+    },
+    {
+      "dataset": "SKAB rig (real)",
+      "chunks": 1,
+      "rows": 23569,
+      "rowstore_bytes": 2473984,
+      "columnstore_bytes": 335872,
+      "compression_ratio": 7.365853658536586
+    }
+  ],
+  "hourly_buckets": 22611,
+  "aggregate_count": 2321549,
+  "aggregate_mismatches": 0,
+  "aggregate_refresh": "range refresh after replay and rectifier backfill; hourly policy for the last 30 days",
+  "average_tolerance": "max(1e-9 absolute, 1e-12 relative); sample counts exact"
+}
+
+WARNING:asyncua.server.server:No signing policy available, user certificate cannot get verified
+WARNING:asyncua.server.server:No encrypting policy available, password may get transferred in plaintext
+WARNING:asyncua.client.client:Requested session timeout to be 3600000ms, got 600000ms instead
+WARNING:asyncua.client.client:Revised values returned differ from subscription values: CreateSubscriptionResult(SubscriptionId=78, RevisedPublishingInterval=50.0, RevisedLifetimeCount=10000, RevisedMaxKeepAliveCount=5000)

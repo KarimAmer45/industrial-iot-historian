@@ -1,0 +1,17 @@
+{
+  "endpoint": "opc.tcp://milo.digitalpetri.com:62541/milo",
+  "checked_at": "2026-10-04T23:57:08.393954+00:00",
+  "objects": [
+    "Server",
+    "Aliases",
+    "CTT",
+    "Demo",
+    "Debug"
+  ],
+  "collector": {
+    "inserted": 1320,
+    "nonnumeric_skipped": 1501,
+    "received": 1320
+  },
+  "verified": true
+}

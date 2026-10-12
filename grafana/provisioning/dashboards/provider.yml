@@ -1,0 +1,7 @@
+apiVersion: 1
+providers:
+  - name: Historian
+    type: file
+    disableDeletion: true
+    options:
+      path: ${HIST_DASHBOARDS_PATH}

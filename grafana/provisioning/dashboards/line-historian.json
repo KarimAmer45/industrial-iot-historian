@@ -1,0 +1,335 @@
+{
+  "uid": "partec-line-historian",
+  "title": "Partec \u00b7 line historian",
+  "schemaVersion": 39,
+  "version": 1,
+  "timezone": "utc",
+  "editable": true,
+  "tags": [
+    "portfolio",
+    "OPC UA",
+    "TimescaleDB"
+  ],
+  "time": {
+    "from": "2026-03-01T23:00:00Z",
+    "to": "2026-03-08T23:00:00Z"
+  },
+  "refresh": "",
+  "description": "Real SKAB/steel timestamps and simulated 2026 rectifier timestamps are separate. Choose a source-period link; other time-series panels may be empty. Tables summarize the loaded datasets.",
+  "links": [
+    {
+      "title": "Rectifier week \u00b7 simulated",
+      "type": "link",
+      "url": "/d/partec-line-historian?from=1772406000000&to=1773010800000",
+      "targetBlank": false
+    },
+    {
+      "title": "SKAB \u00b7 real pump",
+      "type": "link",
+      "url": "/d/partec-line-historian?from=1583750040000&to=1583751300000",
+      "targetBlank": false
+    },
+    {
+      "title": "Steel 2018 \u00b7 real meter",
+      "type": "link",
+      "url": "/d/partec-line-historian?from=1514764800000&to=1546300800000",
+      "targetBlank": false
+    }
+  ],
+  "panels": [
+    {
+      "id": 1,
+      "title": "Rectifier current \u00b7 simulated \u00b7 use Rectifier week link",
+      "type": "timeseries",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 10
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT time_bucket('5 minutes',s.ts) AS time,g.tag AS metric,avg(s.value) AS value FROM hist.sample s JOIN hist.signal g USING(signal_id) WHERE g.station_id IS NOT NULL AND $__timeFilter(s.ts) GROUP BY 1,2 ORDER BY 1,2",
+          "format": "time_series",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "SKAB pump current and recorded anomaly \u00b7 use SKAB link",
+      "type": "timeseries",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 10,
+        "w": 14,
+        "h": 9
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT p.ts AS time,p.current_a AS current_a,p.anomaly::int AS anomaly FROM hist.v_skab_scored p WHERE recording_id='valve1_1' AND $__timeFilter(p.ts) ORDER BY 1",
+          "format": "time_series",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "amp"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "anomaly"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "Carrier charge \u00b7 measured / planned \u00b7 simulated",
+      "type": "table",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 14,
+        "y": 10,
+        "w": 10,
+        "h": 9
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT station,carrier_no,round(ratio::numeric,4) AS ratio,round(measured_ah::numeric,3) AS ah,round(planned_ah::numeric,3) AS planned_ah,started,coverage,fault_expected FROM hist.v_ah_ratio ORDER BY ratio,started LIMIT 100",
+          "format": "table",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      }
+    },
+    {
+      "id": 4,
+      "title": "SKAB detector score \u00b7 independent anomaly-free baseline",
+      "type": "table",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 19,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT * FROM hist.v_scores ORDER BY recording_id",
+          "format": "table",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      }
+    },
+    {
+      "id": 5,
+      "title": "Daily charge versus Project 2 \u00b7 simulated",
+      "type": "table",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 19,
+        "w": 12,
+        "h": 7
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT day,round(historian_ah::numeric,2) AS historian_ah,round(lab_reference_ah,2) AS lab_reference_ah,round(difference_pct::numeric,3) AS difference_pct,coverage FROM hist.v_lab_comparison ORDER BY day",
+          "format": "table",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      }
+    },
+    {
+      "id": 6,
+      "title": "Steel plant daily energy \u00b7 real \u00b7 use Steel 2018 link",
+      "type": "timeseries",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian-postgres"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 26,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian-postgres"
+          },
+          "rawSql": "SELECT source_date::timestamp AT TIME ZONE 'UTC' AS time,energy_kwh AS value FROM hist.v_steel_daily WHERE $__timeFilter(source_date::timestamp AT TIME ZONE 'UTC') ORDER BY 1",
+          "format": "time_series",
+          "editorMode": "code",
+          "rawQuery": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "lineWidth": 1,
+            "fillOpacity": 8
+          },
+          "unit": "kwatth"
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "description": "Sum of 96 reconstructed 15-minute readings per literal source date. Repeated unchanged values are carried forward before summation. Source timezone is unknown; no midnight date correction is inferred."
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "scores": [
+    {
+      "recording_id": "valve1_1",
+      "total": 1145,
+      "scored": 1145,
+      "tp": 201,
+      "fp": 315,
+      "fn": 201,
+      "tn": 428,
+      "precision": 0.38953488372093026,
+      "recall": 0.5,
+      "f1": 0.43790849673202614,
+      "prevalence": 0.35109170305676857,
+      "fpr": 0.423956931359354,
+      "tpr_minus_fpr": 0.07604306864064603,
+      "always_anomaly_f1": 0.519715578539108
+    },
+    {
+      "recording_id": "valve1_2",
+      "total": 1075,
+      "scored": 1075,
+      "tp": 152,
+      "fp": 323,
+      "fn": 185,
+      "tn": 415,
+      "precision": 0.32,
+      "recall": 0.45103857566765576,
+      "f1": 0.37438423645320196,
+      "prevalence": 0.31348837209302327,
+      "fpr": 0.43766937669376693,
+      "tpr_minus_fpr": 0.01336919897388883,
+      "always_anomaly_f1": 0.4773371104815864
+    },
+    {
+      "recording_id": "valve2_1",
+      "total": 1063,
+      "scored": 1063,
+      "tp": 159,
+      "fp": 311,
+      "fn": 174,
+      "tn": 419,
+      "precision": 0.3382978723404255,
+      "recall": 0.4774774774774775,
+      "f1": 0.3960149439601494,
+      "prevalence": 0.31326434619002824,
+      "fpr": 0.426027397260274,
+      "tpr_minus_fpr": 0.05145008021720349,
+      "always_anomaly_f1": 0.47707736389684813
+    }
+  ],
+  "baseline": [
+    {
+      "parameter": "Current",
+      "n": 9405,
+      "mean": 2.4030101071770336,
+      "sd": 0.4864685694620367,
+      "low_limit": 0.9436043987909235,
+      "high_limit": 3.8624158155631436,
+      "source": "skab:anomaly-free/anomaly-free.csv"
+    }
+  ],
+  "daily_charge": [
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-02",
+      "historian_ah": 24838.559634578596,
+      "coverage": 1.0,
+      "lab_reference_ah": "24837.9310807541",
+      "difference_ah": 0.6285538244956115,
+      "difference_pct": 0.0025306206964392786,
+      "source": "Project 2 simulated daily charge; dosing.csv snapshot"
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-03",
+      "historian_ah": 30597.507798603372,
+      "coverage": 1.0,
+      "lab_reference_ah": "30596.3357107692",
+      "difference_ah": 1.1720878341729986,
+      "difference_pct": 0.0038308111312890247,
+      "source": "Project 2 simulated daily charge; dosing.csv snapshot"
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-04",
+      "historian_ah": 27023.526568350753,
+      "coverage": 1.0,
+      "lab_reference_ah": "27151.369123497",
+      "difference_ah": -127.84255514624601,
+      "difference_pct": -0.4708512287714073,
+      "source": "Project 2 simulated daily charge; dosing.csv snapshot"
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-05",
+      "historian_ah": 23310.742330817982,
+      "coverage": 1.0,
+      "lab_reference_ah": "23310.2381416797",
+      "difference_ah": 0.504189138282527,
+      "difference_pct": 0.0021629514688648044,
+      "source": "Project 2 simulated daily charge; dosing.csv snapshot"
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-06",
+      "historian_ah": 24831.372984306774,
+      "coverage": 1.0,
+      "lab_reference_ah": "24830.0478433262",
+      "difference_ah": 1.3251409805743606,
+      "difference_pct": 0.0053368442499035496,
+      "source": "Project 2 simulated daily charge; dosing.csv snapshot"
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-07",
+      "historian_ah": 0.0,
+      "coverage": 1.0,
+      "lab_reference_ah": null,
+      "difference_ah": null,
+      "difference_pct": null,
+      "source": null
+    },
+    {
+      "tank_code": "L1-T05",
+      "day": "2026-03-08",
+      "historian_ah": 0.0,
+      "coverage": 1.0,
+      "lab_reference_ah": null,
+      "difference_ah": null,
+      "difference_pct": null,
+      "source": null
+    }
+  ],
+  "faults": [
+    {
+      "step_id": 228,
+      "signal_id": 48,
+      "planned_ah": 125.79327617868309,
+      "measured_ah": 88.01763309087792,
+      "coverage": 1.0,
+      "method": "hold; exact switching boundaries",
+      "fault_expected": true,
+      "station": "L1-T05-S16",
+      "carrier_no": "B49",
+      "started": "2026-03-04 08:00:00+00:00",
+      "ended": "2026-03-04 09:16:11.428571+00:00",
+      "ratio": 0.6997006180668452
+    },
+    {
+      "step_id": 265,
+      "signal_id": 48,
+      "planned_ah": 276.0061333458791,
+      "measured_ah": 193.2908816329531,
+      "coverage": 1.0,
+      "method": "hold; exact switching boundaries",
+      "fault_expected": true,
+      "station": "L1-T05-S16",
+      "carrier_no": "B26",
+      "started": "2026-03-04 10:28:00+00:00",
+      "ended": "2026-03-04 12:12:45.714286+00:00",
+      "ratio": 0.7003137187198997
+    },
+    {
+      "step_id": 302,
+      "signal_id": 48,
+      "planned_ah": 19.770114283860842,
+      "measured_ah": 13.833419069316173,
+      "coverage": 1.0,
+      "method": "hold; exact switching boundaries",
+      "fault_expected": true,
+      "station": "L1-T05-S16",
+      "carrier_no": "B03",
+      "started": "2026-03-04 12:56:00+00:00",
+      "ended": "2026-03-04 14:12:11.428571+00:00",
+      "ratio": 0.6997136622831241
+    }
+  ],
+  "sample_count": 2321549
+}

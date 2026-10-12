@@ -1,0 +1,142 @@
+# Every number a simulator or seed script uses lives here, with a source key.
+# Rule: no literal process numbers in Python. If a value has no public source,
+# it goes under "assumptions" with a reason, and the README lists it.
+# Values were read from the sources on 2026-10-04. Re-check them before you publish.
+
+plant:                                    # Partec's own public website
+  carriers_per_hour:     {value: 15, src: partec_anlagen}
+  loading_stations:      {value: 3,  src: partec_anlagen}
+  shifts_per_day:        {value: 3,  src: partec_home}
+  working_days_per_week: {value: 5,  src: partec_home}
+
+znni_alkaline:
+  # Operating window from a supplier technical data sheet (TDS)
+  bath_limits:
+    ZN:     {lsl: 7.0, target: 10.0, usl: 12.0, unit: g/L, src: sharma_tds}
+    NI:     {lsl: 1.1, target: 1.4,  usl: 2.0,  unit: g/L, src: sharma_tds}
+    NAOH:   {lsl: 110, target: 120,  usl: 140,  unit: g/L, src: sharma_tds}
+    NA2CO3: {usl: 80,  unit: g/L, src: sharma_tds}
+  current_efficiency_pct: {min: 40, max: 70, src: sharma_tds}
+  current_density_a_dm2:  {rack: [1.0, 3.0], barrel: [0.5, 1.5], src: sharma_tds}
+  voltage_v:              {rack: [2, 12], barrel: [6, 18], src: sharma_tds}
+  barrel_rpm:             {value: [3, 6], src: sharma_tds}
+  additive_ml_per_1000_ah:
+    nickel_replenisher: [750, 1100]
+    complexer:          [50, 150]
+    brightener:         [50, 200]
+    src: sharma_tds
+  deposit_ni_pct:         {min: 12, max: 15, src: columbia_tds}
+
+  # Two real production electrolytes, steady state for more than 18 months
+  production_observed:
+    electrolyte_A:
+      ZN: [9.5, 10.5]
+      NI: [1.1, 1.3]
+      NAOH: [110, 120]
+      NA2CO3: [65, 75]
+      COD: [100, 130]
+      current_efficiency_pct: [53, 55]
+      deposition_um_per_min_at_0_5_a_dm2: [0.09, 0.12]
+      deposit_ni_pct: [13.0, 14.5]
+    electrolyte_B:
+      ZN: [8.5, 9.5]
+      NI: [0.9, 1.3]
+      NAOH: [110, 120]
+      NA2CO3: [60, 65]
+      COD: [40, 60]
+      current_efficiency_pct: [60, 65]
+      deposition_um_per_min_at_0_5_a_dm2: [0.12, 0.14]
+      deposit_ni_pct: [12.5, 13.5]
+    src: nmfrc_2008
+  analysis_uncertainty_g_l:            # conventional lab methods, one standard deviation as reported
+    ZN_titration: 0.5
+    NI_AAS: 0.1
+    src: nmfrc_2008
+  carbonate_with_decarbonation_g_l: {value: [45, 65], src: nmfrc_2008}
+  # TODO(you): digitise Fig. 2 of nmfrc_2008 (carbonate build up and NaOH drop over ~120 days)
+  # with WebPlotDigitizer and store the slopes here. Until then the simulator holds NaOH and
+  # carbonate inside the production_observed ranges.
+
+corrosion_astm_b117_hours:              # supplier results; source states them as lower bounds (">")
+  znni_blue_passivate:         {white: 120, red: 720}
+  znni_blue_passivate_sealer:  {white: 200, red: 1008}
+  znni_black_passivate_sealer: {white: 200, red: 1008}
+  src: nmfrc_2008
+
+parts_catalog:                          # ISO 4017 hex screws (full thread), steel
+  mass_src: boltport_iso4017            # kg per 1000 pcs
+  dims_src: iso4017_nominal             # s = width across flats, k = head height, nominal values
+  items:
+    - {part_no: ISO4017-M6x20,  d: 6,  l: 20, s: 10, k: 4.0,  kg_per_1000: 5.80}
+    - {part_no: ISO4017-M8x25,  d: 8,  l: 25, s: 13, k: 5.3,  kg_per_1000: 14.9}
+    - {part_no: ISO4017-M8x40,  d: 8,  l: 40, s: 13, k: 5.3,  kg_per_1000: 18.7}
+    - {part_no: ISO4017-M10x30, d: 10, l: 30, s: 16, k: 6.4,  kg_per_1000: 21.2}
+    - {part_no: ISO4017-M10x50, d: 10, l: 50, s: 16, k: 6.4,  kg_per_1000: 36.2}
+    - {part_no: ISO4017-M12x40, d: 12, l: 40, s: 18, k: 7.5,  kg_per_1000: 44.9}
+    - {part_no: ISO4017-M12x60, d: 12, l: 60, s: 18, k: 7.5,  kg_per_1000: 58.2}
+    - {part_no: ISO4017-M16x60, d: 16, l: 60, s: 24, k: 10.0, kg_per_1000: 117.0}
+
+specs_for_simulation:                   # rows from Partec's norm pages (project 4 scrapes all of them)
+  - {spec_code: "VW 13750 TL244 Ofl-r647",             thickness_um: [6, 10],    src: partec_tl244}
+  - {spec_code: "DIN EN ISO 19598 Fe//ZnNi5//Cn//T0",  thickness_um: [5, null],  src: partec_iso19598}
+  - {spec_code: "DIN EN ISO 19598 Fe//ZnNi8//Cn//T0",  thickness_um: [8, null],  src: partec_iso19598}
+  - {spec_code: "DIN EN ISO 19598 Fe//ZnNi8//Fn//T0",  thickness_um: [8, null],  src: partec_iso19598}
+  - {spec_code: "DIN EN ISO 19598 Fe//ZnNi12//Cn//T0", thickness_um: [12, null], src: partec_iso19598}
+
+constants:                              # CODATA 2018 / IUPAC standard values
+  faraday_c_per_mol: 96485.33212
+  zn_molar_mass_g_mol: 65.38
+  ni_molar_mass_g_mol: 58.693
+  zn_density_g_cm3: 7.14
+  src: codata_iupac
+
+# Not from any public source. Keep this list short, say so in the README,
+# and replace values when you learn real ones.
+assumptions:
+  simulation:
+    why: "Demonstration scheduling, incident severity and sampling choices; none are Partec production facts. Production spread interprets published ranges as +/- 2 sigma; the Ni incident is an illustrative rule, not a calibrated chemistry model."
+    value:
+      open_range_margin_um: 3
+      incident_position_divisor: 3
+      incident_days: 2
+      sample_hour: 6
+      production_start_hour: 7
+      incident_ni_shortfall_g_l: [0.15, 0.30]
+      incident_deposit_ni_pct: [10.5, 11.5]
+      customers_per_part: 2
+      partial_barrel_fraction: 0.8
+      measurement_floor_um: 0.5
+      thickness_test_delay_min: 30
+      ni_test_delay_min: 40
+      rework_probability: 0.9
+      carrier_pool: 60
+      shipping_delay_days: 1
+      shipping_hour: 14
+      rework_delay_days: 1
+      complaint_delay_weeks: 6
+  barrel_load_kg:       {value: 40,  why: "no public barrel capacity found; sets pieces per barrel"}
+  thread_area_factor:   {value: 1.3, why: "threads add surface; geometric cylinder underestimates it"}
+  aim_thickness:        {value: "midpoint of a closed range, minimum + 3 um if open ended", why: "plating to the minimum risks rejects"}
+  within_carrier_cv:    {value: 0.10, why: "spread of thickness between pieces of one barrel; not published"}
+  lots_per_day:         {value: 40,  why: "order volume is not published"}
+  carriers_per_lot:     {value: [1, 4], why: "lot size spread"}
+  analyses_per_day:     {value: 1,   why: "typical once per shift or day; not published"}
+  thickness_samples_per_lot: {value: 5, why: "sampling plan is customer specific"}
+  ni_check_every_nth_lot: {value: 3, why: "deposit Ni is often sampled, not checked on every lot; creates the gap the planted complaint uses"}
+  rectifier_noise:      {value: 0.01, why: "relative noise on simulated rectifier readings"}
+  rectifier_fault_factor: {value: 0.7, why: "planted fault: one slot delivers 70 % current for one day"}
+  incidents:            {why: "planted on purpose so the trace queries have something to find"}
+
+sources:
+  partec_home:      {title: "Partec homepage", url: "https://www.partec.de/"}
+  partec_anlagen:   {title: "Partec Anlagentechnik", url: "https://www.partec.de/anlagentechnik/"}
+  partec_normen:    {title: "Partec Industrie- und Automobilnormen", url: "https://www.partec.de/industrie-automobilnormen/"}
+  partec_tl244:     {title: "Partec page VW 13750 TL244", url: "https://www.partec.de/industrie-automobilnormen/vw-13750-tl244/"}
+  partec_iso19598:  {title: "Partec page DIN EN ISO 19598", url: "https://www.partec.de/industrie-automobilnormen/din-en-iso-19598/"}
+  sharma_tds:       {title: "Technical Data Sheet Alkaline Zinc Nickel 200", url: "https://www.sharmachemindus.com/pdfs/general-plating/zinc-plating/zinkol-alkaline-zinc/alkaline-zinc-nickel-200.pdf"}
+  columbia_tds:     {title: "Colloy Ni-Z-Posit-II TDS, Columbia Chemical", url: "https://www.columbiachemical.com/wp-content/uploads/COLLOYNI-Z-POSITII-TDS.pdf"}
+  nmfrc_2008:       {title: "Smie A., Zinc Nickel (Zn Ni 12-15%) Alloy Process: Features for High Performance and Economic Process Control, NASF SUR/FIN 2008", url: "https://nmfrc.org/pdf/sf2008/sf0828.pdf"}
+  metrohm_xrf:      {title: "Metrohm AN-PAN-1069 Online zinc/nickel plating bath analysis with XRF", url: "https://www.metrohm.com/content/metrohm/en_th/applications/application-notes/prozess-applikationen-anpan/an-pan-1069.download.pdf"}
+  boltport_iso4017: {title: "Weight chart for ISO 4017 hex screws", url: "https://boltport.com/weights/iso-4017/"}
+  iso4017_nominal:  {title: "ISO 4017 nominal head dimensions; cross check M6, M8, M16 with Wermac", url: "https://www.wermac.org/bolts/metricBDC.html"}
+  codata_iupac:     {title: "CODATA 2018 Faraday constant; IUPAC standard atomic weights", url: "https://physics.nist.gov/cgi-bin/cuu/Value?f"}

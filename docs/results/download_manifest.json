@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-12T14:23:45.465346+00:00",
+  "skab_commit": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2",
+  "files": [
+    {
+      "path": "data/raw/SKAB/data/anomaly-free/anomaly-free.csv",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/data/anomaly-free/anomaly-free.csv",
+      "bytes": 814703,
+      "sha256": "7641a8742957100ef424dd97adfb3eeab27d4d180645fe2b3c49b7f7146ae9a6"
+    },
+    {
+      "path": "data/raw/SKAB/data/valve1/1.csv",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/data/valve1/1.csv",
+      "bytes": 110330,
+      "sha256": "fe4493bf805baef4e6dfb864094275d8cc2ea80a16b3735e2752b18b6aefd812"
+    },
+    {
+      "path": "data/raw/SKAB/data/valve1/2.csv",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/data/valve1/2.csv",
+      "bytes": 103507,
+      "sha256": "90492413469261886c8896c327241448df5da73fd7739cabfec8dd82de3c0ce4"
+    },
+    {
+      "path": "data/raw/SKAB/data/valve2/1.csv",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/data/valve2/1.csv",
+      "bytes": 102680,
+      "sha256": "b35d27f664eb0851ab73e5eb06633404c7eeaf532edff7e40c68eb9379f2012b"
+    },
+    {
+      "path": "data/raw/SKAB/README.md",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/README.md",
+      "bytes": 10712,
+      "sha256": "238f1a345a8fccd67540f16bce10c26dbfd7912f196832d5c165f73b8779c222"
+    },
+    {
+      "path": "data/raw/SKAB/LICENSE",
+      "url": "https://raw.githubusercontent.com/waico/SKAB/b2c0d46c2971dcbfe71e26087b6d231998bb91c2/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "data/raw/steel/steel.zip",
+      "url": "https://archive.ics.uci.edu/static/public/851/steel+industry+energy+consumption.zip",
+      "bytes": 481973,
+      "sha256": "d82d28b33780ff1582507fcf08ae764ff648af459d58234370c551e62aadeaef"
+    },
+    {
+      "path": "data/raw/steel/Steel_industry_data.csv",
+      "archive_member": "Steel_industry_data.csv",
+      "bytes": 2731389,
+      "sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc"
+    }
+  ]
+}

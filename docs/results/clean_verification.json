@@ -1,0 +1,19 @@
+{
+  "database": "hist_verify_6329d9ba04e6",
+  "runs": [
+    {
+      "script": "scripts/demo.py",
+      "returncode": 0,
+      "log": "clean_demo.log"
+    },
+    {
+      "script": "scripts/replay_demo.py",
+      "returncode": 0,
+      "log": "clean_replay_demo.log"
+    }
+  ],
+  "sample_count": 2321549,
+  "replay_stable": true,
+  "temporary_database_removed": true,
+  "seconds": 378.53
+}

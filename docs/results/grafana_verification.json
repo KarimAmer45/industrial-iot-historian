@@ -1,0 +1,41 @@
+{
+  "health": {
+    "database": "ok",
+    "version": "13.2.3",
+    "commit": "90ffed056f0884267356c12a0eeb72a022af53f1"
+  },
+  "dashboard_title": "Partec \u00b7 line historian",
+  "panels": [
+    {
+      "title": "Rectifier current \u00b7 simulated \u00b7 use Rectifier week link",
+      "rows": 2017,
+      "status": 200
+    },
+    {
+      "title": "SKAB pump current and recorded anomaly \u00b7 use SKAB link",
+      "rows": 1145,
+      "status": 200
+    },
+    {
+      "title": "Carrier charge \u00b7 measured / planned \u00b7 simulated",
+      "rows": 100,
+      "status": 200
+    },
+    {
+      "title": "SKAB detector score \u00b7 independent anomaly-free baseline",
+      "rows": 3,
+      "status": 200
+    },
+    {
+      "title": "Daily charge versus Project 2 \u00b7 simulated",
+      "rows": 7,
+      "status": 200
+    },
+    {
+      "title": "Steel plant daily energy \u00b7 real \u00b7 use Steel 2018 link",
+      "rows": 365,
+      "status": 200
+    }
+  ],
+  "browser_render_verified": false
+}

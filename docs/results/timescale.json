@@ -1,0 +1,44 @@
+{
+  "postgres_version": "17.11",
+  "timescale_version": "2.30.2",
+  "sample_count": 2321549,
+  "chunks": 374,
+  "rowstore_bytes": 249839616,
+  "columnstore_bytes": 19161088,
+  "compression_ratio": 13.038905515177426,
+  "rowstore_method": "each chunk copied into a fresh heap with freshly built copies of the hypertable indexes",
+  "columnstore_method": "compressed chunk relations (chunk_columnstore_stats after_compression_total_bytes)",
+  "hypertable_size_after_conversion": 25305088,
+  "hypertable_size_note": "also counts the empty rowstore relations of every converted chunk; their size depends on conversion history",
+  "datasets": [
+    {
+      "dataset": "rectifiers (simulated)",
+      "chunks": 8,
+      "rows": 2238283,
+      "rowstore_bytes": 222617600,
+      "columnstore_bytes": 3874816,
+      "compression_ratio": 57.45243128964059
+    },
+    {
+      "dataset": "steel meter (real)",
+      "chunks": 365,
+      "rows": 59697,
+      "rowstore_bytes": 24748032,
+      "columnstore_bytes": 14950400,
+      "compression_ratio": 1.6553424657534246
+    },
+    {
+      "dataset": "SKAB rig (real)",
+      "chunks": 1,
+      "rows": 23569,
+      "rowstore_bytes": 2473984,
+      "columnstore_bytes": 335872,
+      "compression_ratio": 7.365853658536586
+    }
+  ],
+  "hourly_buckets": 22611,
+  "aggregate_count": 2321549,
+  "aggregate_mismatches": 0,
+  "aggregate_refresh": "range refresh after replay and rectifier backfill; hourly policy for the last 30 days",
+  "average_tolerance": "max(1e-9 absolute, 1e-12 relative); sample counts exact"
+}

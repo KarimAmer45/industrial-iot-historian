@@ -1,0 +1,34 @@
+{
+  "start": "2026-03-02 00:00:00+01:00",
+  "end": "2026-03-09 00:00:00+01:00",
+  "step_seconds": 10,
+  "slots": 37,
+  "fault_station_id": 16,
+  "fault_day": "2026-03-04",
+  "fault_factor": 0.7,
+  "carrier_steps": 486,
+  "samples": 2238283,
+  "flagged_steps": [
+    {
+      "step_id": 228,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 08:00:00+00:00",
+      "ratio": 0.6997006180668452,
+      "fault_expected": true
+    },
+    {
+      "step_id": 265,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 10:28:00+00:00",
+      "ratio": 0.7003137187198997,
+      "fault_expected": true
+    },
+    {
+      "step_id": 302,
+      "station": "L1-T05-S16",
+      "started": "2026-03-04 12:56:00+00:00",
+      "ratio": 0.6997136622831241,
+      "fault_expected": true
+    }
+  ]
+}
